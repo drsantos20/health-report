@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.api import ping
+from app.api import ping, covid_report
 from app.db import engine, database, metadata
 
 metadata.create_all(engine)
@@ -19,3 +19,4 @@ async def shutdown():
 
 
 app.include_router(ping.router)
+app.include_router(covid_report.router, prefix="/covid", tags=["covid"])
