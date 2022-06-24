@@ -9,17 +9,16 @@ from sqlalchemy import (
     Table,
     create_engine
 )
-from sqlalchemy.sql import func
-
 from databases import Database
+from sqlalchemy.sql import func
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 # SQLAlchemy
 engine = create_engine(DATABASE_URL)
 metadata = MetaData()
-notes = Table(
-    "covid",
+covid_report = Table(
+    "covid_report",
     metadata,
     Column("id", Integer, primary_key=True),
     Column("country", String(50)),
