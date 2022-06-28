@@ -19,4 +19,4 @@ async def shutdown():
 
 
 app.include_router(ping.router)
-app.include_router(covid_report.router, prefix="/covid", tags=["covid"])
+app.include_router(covid_report.router, prefix="/covid_report", tags=["covid_report"])
