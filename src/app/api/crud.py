@@ -10,3 +10,13 @@ async def post(payload: CovidReportSchema):
         recovered=payload.recovered,
     )
     return await database.execute(query=query)
+
+
+async def get(id: int):
+    query = covid_report.select().where(id == covid_report.c.id)
+    return await database.fetch_one(query=query)
+
+
+async def get_all():
+    query = covid_report.select()
+    return await database.fetch_all(query=query)
