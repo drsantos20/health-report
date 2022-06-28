@@ -1,13 +1,12 @@
 import json
 
-import pytest
-
 from app.api import crud
 
 
 def test_create_note(test_app, monkeypatch):
     test_request_payload = {
         "country": "Brazil",
+        "state": "",
         "confirmed": 1,
         "deaths": 20,
         "recovered": 1,
@@ -15,6 +14,7 @@ def test_create_note(test_app, monkeypatch):
     test_response_payload = {
         "id": 1,
         "country": "Brazil",
+        "state": "",
         "confirmed": 1,
         "deaths": 20,
         "recovered": 1,
@@ -43,6 +43,7 @@ def test_read_note(test_app, monkeypatch):
     test_data = {
         "id": 1,
         "country": "Brazil",
+        "state": "",
         "confirmed": 1,
         "deaths": 20,
         "recovered": 1,
@@ -71,8 +72,8 @@ def test_read_note_incorrect_id(test_app, monkeypatch):
 
 def test_read_all_notes(test_app, monkeypatch):
     test_data = [
-        {"country": "Brazil", "confirmed": 1, "deaths": 20, "recovered": 1, "id": 1},
-        {"country": "Brazil", "confirmed": 1, "deaths": 20, "recovered": 1, "id": 2},
+        {"country": "Brazil", "state": "", "confirmed": 1, "deaths": 20, "recovered": 1, "id": 1},
+        {"country": "Brazil", "state": "", "confirmed": 1, "deaths": 20, "recovered": 1, "id": 2},
     ]
 
     async def mock_get_all():

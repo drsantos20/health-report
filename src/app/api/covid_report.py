@@ -16,6 +16,7 @@ async def create_covid_report(payload: CovidReportSchema):
     response_object = {
         "id": covid_report_id,
         "country": payload.country,
+        "state": payload.state,
         "confirmed": payload.confirmed,
         "deaths": payload.deaths,
         "recovered": payload.recovered,

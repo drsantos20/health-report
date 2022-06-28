@@ -14,6 +14,7 @@ covid_report = Table(
     metadata,
     Column("id", Integer, primary_key=True),
     Column("country", String(50)),
+    Column("state", String(50), nullable=True),
     Column("confirmed", Integer, default=0, nullable=False),
     Column("deaths", Integer, default=0, nullable=False),
     Column("recovered", Integer, default=0, nullable=False),

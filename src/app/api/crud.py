@@ -6,6 +6,7 @@ async def post(payload: CovidReportSchema):
     query = covid_report.insert().values(
         country=payload.country,
         confirmed=payload.confirmed,
+        state=payload.state,
         deaths=payload.deaths,
         recovered=payload.recovered,
     )
